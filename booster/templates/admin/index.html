@@ -1,0 +1,43 @@
+{% extends "admin/base.html" %}
+{% block body %}
+<ul>
+    <li>
+        <a href="{{ url_for('news_index') }}">Manage News Articles</a>
+    </li>
+</ul>
+
+<h1>All Users</h1>
+<table class="pretty">
+    <tr><th>Login</th><th>Email Address</th><th>&nbsp;</th></tr>
+    {% for user in users %}
+    <tr>
+        <td><a href="{{ url_for('edit_user', login=user.login) }}">{{ user.login }}</a></td>
+        <td>{{ user.email }}</td>
+        <td>
+            {% if user.is_super %}
+            <strong>Super User Account</strong>;
+            {% else %}
+                <a href="{{ url_for('delete_user', login=user.login) }}">delete</a>
+            {% endif %}
+
+        </td>
+    </tr>
+{% endfor %}
+</table>
+<p><a href="{{ url_for('add_user') }}">Add a new <strong>user</strong></a></p>
+<h1>All Events</h1>
+<table class="pretty">
+    <tr><th>Name</th><th>Type</th><th>Starts</th><th>Duration</th><th>&nbsp;</th></tr>
+    {% for event in events %}
+    <tr>
+        <td><a href="{{ url_for('edit_event', eid=event.id) }}">{{ event.name }}</a></td>
+        <td>{{ event.event_type.name }}</td>
+        <td>{{ event.start_time }}</td>
+        <td>{{ event.end_time - event.start_time }}</td>
+        <td><a href="{{ url_for('delete_event', eid=event.id) }}">delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<p><a href="{{ url_for('add_event') }}">Create a new <strong>event</strong></a></p>
+<p><a href="{{ url_for('manage_event_types') }}">Manage event types</a></p>
+{% endblock %}

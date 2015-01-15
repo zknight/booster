@@ -1,0 +1,13 @@
+{% macro form_errors(form) %}
+    {% if form.errors %}
+    <div class="errors">
+        {% for field_name in form.errors %}
+            {% for error in form.errors[field_name] %}
+            <div class="">
+                {{ form[field_name].label }}: {{error }}
+            <div>
+            {% endfor %}
+        {% endfor %}
+    <div>
+    {% endif %}
+{% endmacro %}

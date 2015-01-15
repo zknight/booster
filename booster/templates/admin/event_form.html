@@ -1,0 +1,40 @@
+{% extends "admin/base.html" %}
+{% from "_formstuff.html" import form_errors %}
+{% block body %}
+<div class="form">
+    <form action"{{action}}", method="post" class="">
+        {{ event_form.hidden_tag() }}
+        {{ form_errors(event_form) }}
+        <div class="field">
+            {{ event_form.event_type.label }}
+            {{ event_form.event_type(class="select-input") }}
+        </div>
+        <div class="field">
+            {{ event_form.name.label }}
+            {{ event_form.name(class="text-input") }}
+        </div>
+        <div class="field">
+            {{ event_form.start_date.label }}
+            {{ event_form.start_date(class="date-input") }}
+        </div>
+        <div class="field">
+            {{ event_form.start_time.label }}
+            {{ event_form.start_time(class="time-input") }}
+        </div>
+        <div class="field">
+            {{ event_form.end_date.label }}
+            {{ event_form.end_date(class="date-input") }}
+        </div>
+        <div class="field">
+            {{ event_form.end_time.label }}
+            {{ event_form.end_time(class="time-input") }}
+        </div>
+        <div class="field">
+            {{ event_form.text.label }}
+            {{ event_form.text(class="text-input") }}
+        </div>
+        <div class="btns">
+            <input type="submit" class="btn" value="Submit">
+        </div>
+    </form>
+{% endblock %}

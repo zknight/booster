@@ -1,0 +1,32 @@
+{% extends "admin/base.html" %}
+{% from "_formstuff.html" import form_errors %}
+{% block body %}
+<div class="form">
+    <form action"{{action}}", method="post" class="">
+        {{ news_form.hidden_tag() }}
+        {{ form_errors(news_form) }}
+        <div class="field">
+            {{ news_form.title.label }}
+            {{ news_form.title(class="text-input") }}
+        </div>
+        <div class="field">
+            {{ news_form.tease.label }}
+            {{ news_form.tease(class="text-input") }}
+        </div>
+        <div class="field">
+            {{ news_form.body.label }}
+            {{ news_form.body(class="text-input") }}
+        </div>
+        <div class="field">
+            {{ news_form.expiry_date.label }}
+            {{ news_form.expiry_date(class="date-input") }}
+        </div>
+        <div class="field">
+            {{ news_form.expiry_time.label }}
+            {{ news_form.expiry_time(class="time-input") }}
+        </div>
+        <div class="btns">
+            <input type="submit" class="btn" value="Submit">
+        </div>
+    </form>
+{% endblock %}

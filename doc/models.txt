@@ -1,0 +1,56 @@
+game
+----
+date, time
+location (home/away)
+opponent
+uniform
+result (win/loss) (can be determined from score
+score 
+summary
+
+schedule
+--------
+team
+games_schedule (relationship)
+
+summary
+-------
+narrative
+goals assists cards saves
+
+goals/saves/assists/cards
+-------------------------
+player
+time
+type
+
+location
+--------
+address
+name
+map link
+
+opponent
+--------
+name
+website
+prior results
+
+prior results
+-------------
+TBD
+
+Event
+-----
+type
+date/time
+description
+
+Contact
+-------
+name
+email
+phone (optional)
+description
+
+

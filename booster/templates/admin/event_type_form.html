@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %}
+{% from "_formstuff.html" import form_errors %}
+{% block body %}
+<div class="form">
+    <form action"{{action}}", method="post" class="">
+        {{ event_type_form.hidden_tag() }}
+        {{ form_errors(event_type_form) }}
+        <div class="field">
+            {{ event_type_form.name.label }}
+            {{ event_type_form.name(class="text-input") }}
+        </div>
+        <div class="field">
+            {{ event_type_form.description.label }}
+            {{ event_type_form.description(class="text-input") }}
+        </div>
+        <div class="btns">
+            <input type="submit" class="btn" value="Submit">
+            <a href="{{url_for("manage_event_types")}}">cancel</a>
+        </div>
+    </form>
+{% endblock %}
+

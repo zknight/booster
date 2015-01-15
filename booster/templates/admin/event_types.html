@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% block body %}
+<p><a href="{{ url_for('admin_index') }}">Return to admin home</a></p>
+<h1>Event Types</h1>
+<table class="pretty">
+    <tr><th>Type</th><th>Description</th><th>&nbsp;</th></tr>
+    {% for event_type in event_types %}
+    <tr>
+        <td>{{ event_type.name }}</td>
+        <td>{{ event_type.description }}</td>
+        <td>
+            <a href="{{ url_for('delete_event_type', etid=event_type.id) }}">delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<p><a href="{{ url_for('add_event_type') }}">Create a new <strong>event type</strong></a></p>
+{% endblock %}

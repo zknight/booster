@@ -1,0 +1,13 @@
+1. Roster with team pic and player pic
+    player profiles? With donation... No logins, just admin handles this
+2. Donation link - requires payment gateway
+3. Game countdown counter
+4. Game schedule, location, maps, etc.
+5. Club, coach contacts
+6. Championships/awards
+7. Membership forms
+8. Upcoming events (meetings, tailgating, special events, fundraisers, etc)
+   categories
+
+upcoming events
+game schedule

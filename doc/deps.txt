@@ -1,0 +1,7 @@
+bcrypt
+    libffi
+flask-sqlalchemy
+flask-wtf
+flask-migrate
+    alembic?
+flask-script

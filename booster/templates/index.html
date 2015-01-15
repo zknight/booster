@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block body %}
+{% set aside_shown = False %}
+{% for article in news %}
+    <p class='intro'>{{ article.title }}
+        <p class='timestamp'>{{ article.updated_at|datetime }}</p>
+    </p>
+    <p class='tease'>{{ article.tease }}</p>
+    <p class='article'>{{ article.body }}</p>
+    {% if not aside_shown %}
+        {% set aside_shown = True %}
+        <aside>
+            <div id="upcoming">
+                <h1>Upcoming Events</h1>
+                {% for event in events %}
+                    <div class="event">
+                        <span class="date">{{ event.start_time|datetime('long') }}</span>
+                        <span class="title">
+                            {{ event.event_type.name }} - {{ event.name }}
+                        </span>
+                        <p>{{ event.text }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        <aside>
+    {% endif %}
+{% endfor %}
+{% endblock %}
+

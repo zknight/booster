@@ -1,0 +1,7 @@
+SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/booster.db'
+DEBUG = True
+SECRET_KEY = 'FUNKYCHICKEN'
+LONG_NAME = 'BoosterClub'
+SHORT_NAME = 'BC'
+PASSWORD = 'default'
+WTF_CSRF_SECRET_KEY = '4f%5tjhioi'

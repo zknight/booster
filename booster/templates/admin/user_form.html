@@ -1,0 +1,29 @@
+{% extends "admin/base.html" %}
+{% from "_formstuff.html" import form_errors %}
+{% block body %}
+<div class="form">
+    <form action="{{action}}", method="post" class="">
+        {{ user_form.hidden_tag() }}
+        {{ form_errors(user_form) }}
+        <div class="field">
+            {{ user_form.login.label }}
+            {{ user_form.login(class="text-input") }}
+        </div>
+        <div class="field">
+            {{ user_form.email.label }}
+            {{ user_form.email(class="text-input") }}
+        </div>
+        <div class="field">
+            {{ user_form.password.label }}
+            {{ user_form.password(class="password-input") }}
+        </div>
+        <div class="field">
+            {{ user_form.confirm.label }}
+            {{ user_form.confirm(class="password-input") }}
+        </div>
+        <div class="btns">
+            <input type="submit" class="btn" value="Submit">
+        </div>
+    </form>
+{% endblock %}
+

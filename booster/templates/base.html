@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta http-equive="Content-Type" content="text/html; charset=utf-8" />
+<title>Bronco Goal Club</title>
+<meta name="description" content=""/>
+<meta name="author" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="static/img/favicon.ico">
+
+<link rel="stylesheet" href="static/css/custom.css" media="all">
+<link rel="stylesheet" href="static/css/layout.css" media="all and (min-width: 33.236em)">
+<!-- Add script stuff here... -->
+<script src="static/js/vendor/modernizr-1.7.min.js"></script>
+</head>
+
+<body>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class='flashme'>
+        {% for m in messages %}
+        {{ m }}
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endwith %}
+<div id="container" class="cf">
+    {% if session.loggedin %}
+    <nav>
+        <ul class="menu">
+            <li class="item"><a href="{{ url_for('news_index') }}">Manage News</a></li>
+            <li class="item"><a href="{{ url_for('admin_index') }}">Manage Events</a></li>
+            <li class="item"><a href="{{ url_for('admin_logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    {% endif %}
+    <article>
+        <header>
+            <h2>
+                <img src="static/img/morsey-ball.png" alt="Front"
+                id="header-logo" />
+            </h2>
+            <h1>Mustang Goal Club <span>Mustang, Oklahoma</span></h1>
+        </header>
+<div id="main" role="main" class="cf">
+{% block body %}{% endblock %}
+</div>
+        <footer class="cf">
+            <p>
+            We are a coalition of parents, coaches, students and players that
+            endeavor to enhance the Mustang High School Soccer experience
+            for the players &emdash; girls and boys &emdash; and fans by 
+            organizing activities, providing equipment, improving our Home
+            venue, and funding college scholarships to players. Money for these
+            supplemental activities and provision comes from fundraising
+            activities, sponsoships, and donations. Join us to help improve
+            Mustang Broncos Soccer!
+            </p>
+            <div id="copyright">&copy;{{ curyear }} Mustang Goal
+                Club</div>
+        </footer>
+    </article>
+</body>
+</html>
+

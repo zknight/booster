@@ -1,0 +1,23 @@
+{% extends "admin/base.html" %}
+{% from "_formstuff.html" import form_errors %}
+{% block body %}
+<h1>Login, Chief.</h1>
+<div class="form">
+<form action="{{url_for('admin_login') }}" method="post" class="">
+    {{ login_form.hidden_tag() }}
+    {{ form_errors(login_form) }}
+    <div class="field">
+        {{ login_form.login.label }}
+        {{ login_form.login(class="text-input") }}
+    </div>
+    <div class="field">
+        {{ login_form.password.label }}
+        {{ login_form.password(class="password-input") }}
+    </div>
+    <div class="btns">
+        <input type="submit" class="btn" value="login">
+    </div>
+</form>
+
+
+{% endblock %}

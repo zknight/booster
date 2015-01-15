@@ -1,0 +1,7 @@
+*.pyc
+db/**
+*.bak
+*~
+*.sw*
+.DS_Store
+log/**
