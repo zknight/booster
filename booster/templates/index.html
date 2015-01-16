@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block body %}
 {% set aside_shown = False %}
+<nav>
+    <ul class="menu">
+        <li class="item"><a href="{{ url_for('store_index') }}">Spirit Wear</a></li>
+    </ul>
+</nav>
+
 {% for article in news %}
     <p class='intro'>{{ article.title }}
         <p class='timestamp'>{{ article.updated_at|datetime }}</p>
