@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 app.config.from_pyfile('doc/booster.cfg.default')
 app.config.from_pyfile('booster.cfg', silent=True)
-print app.config['SQLALCHEMY_DATABASE_URI']
+#print app.config['SQLALCHEMY_DATABASE_URI']
 
 db = SQLAlchemy(app)
 import booster

@@ -1,0 +1,29 @@
+{% extends "admin/base.html" %}
+{% from "_formstuff.html" import form_errors %}
+{% block body %}
+<div class="form">
+    <form action"{{action}}", method="post" class="">
+        {{ product_form.hidden_tag() }}
+        {{ form_errors(product_form) }}
+        <div class="field">
+            {{ product_form.name.label }}
+            {{ product_form.name(class="text-input") }}
+        </div>
+        <div class="field">
+            {{ product_form.description.label }}
+            {{ product_form.description(class="text-input") }}
+        </div>
+        <div class="field">
+            {{ product_form.instock.label }}
+            {{ product_form.instock }}
+        </div>
+        <div class="field">
+            {{ product_form.dollars.label }}
+            {{ product_form.dollars(class="text-input") }}
+        </div>
+        <div class="btns">
+            <input type="submit" class="btn" value="Submit">
+        </div>
+    </form>
+{% endblock %}
+

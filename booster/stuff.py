@@ -28,6 +28,25 @@ def format_datetime(dt, format="short"):
         
     return dt.strftime(fmt)
 
+@app.template_filter('bool')
+def format_boolean(val, format="yesno"):
+    out = ""
+    if format == 'yesno':
+        if val:
+            out = 'Yes'
+        else:
+            out = 'No'
+    else:
+        if val:
+            out = 'True'
+        else:
+            out = 'False'
+    return out
+
+@app.template_filter('money')
+def format_money(val):
+    return "${0:,.2f}".format(val)
+
 @app.context_processor
 def current_date():
     d = date.today()

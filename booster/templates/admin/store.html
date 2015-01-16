@@ -1,0 +1,45 @@
+{% extends "admin/base.html" %}
+{% block body %}
+<h1>Products</h1>
+<table class="pretty">
+    <tr><th>Name</th><th>Description</th><th>In
+        Stock?</th><th>Price</th><th>Photos</th.<th>&nbsp;</th></tr>
+    {% for product in products: %}
+    <tr>
+        <td>
+            <a href="{{ url_for('edit_product', pid=product.id) }}">
+                {{ product.name }}
+            </a>
+        </td>
+        <td>
+            {{ product.description }}
+        </td>
+        <td>
+            {{ product.instock|bool }}<br />
+            <a href="{{ url_for('toggle_stock', pid=product.id) }}">
+                (change)
+            </a>
+        </td>
+        <td>
+            {{ product.dollars|money }}
+        </td>
+        <td>
+            {% for pic in product.pictures: %}
+                {{ pic.name }}<br />
+            {% endfor %}
+            <a href="{{ url_for('add_picture', pid=product.id) }}">
+                add picture
+            </a>
+        </td>
+        <td>
+            <a href="{{ url_for('delete_product', pid=product.id) }}">
+                delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<p><a href="{{ url_for('add_product') }}">
+    Add a new
+    <strong>product</strong></a></p>
+{% endblock %}
